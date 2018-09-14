@@ -1,0 +1,22 @@
+{
+  "name": "ci-sandbox",
+  "version": "0.0.5",
+  "main": "lib/ci-sandbox.js",
+  "types": "lib/ci-sandbox.d.ts",
+  "repository": "git@github.com:miroslavstastny/ci-sandbox.git",
+  "author": "Miroslav Stastny <miroslav.stastny@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "dts-bundle-webpack": "^1.0.0",
+    "react": "^16.5.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.18.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
