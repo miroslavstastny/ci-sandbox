@@ -1,2 +1,2 @@
 import * as React from 'react'
-export default () => (<div>SandboxComponent@2</div>)
+export default () => (<div>SandboxComponent@SEVEN</div>)
