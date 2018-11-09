@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/node": "^10.9.4",
     "awesome-typescript-loader": "^5.2.1",
+    "danger": "^6.0.5",
     "dts-bundle-webpack": "^1.0.0",
     "react": "^16.5.0",
     "typescript": "^3.0.3",
