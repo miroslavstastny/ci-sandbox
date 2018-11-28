@@ -30,7 +30,24 @@ jobs:
       - run:
           name: Push stats
           command: |
-            exit 1
+            statsFile=stats/generated
+
+            if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+              echo "Not a pull request, skipping step"
+              exit 0
+            fi
+            cp stats/current stats/generated
+            if [ -z "$(git status --porcelain stats/generated)" ]; then
+              echo "$statsFile has not changed, exiting"
+              exit 0
+            fi
+
+            echo "Going to push updated $statsFile"
+            git config user.email "miroslav.stastny+dusty@gmail.com"
+            git config user.name "DustyTheBot"
+            git add $statsFile
+            git commit -m "update $statsFile [skip ci]"
+            git push --set-upstream origin ${CIRCLE_BRANCH}
 
       - run:
           name: Publish npm package
