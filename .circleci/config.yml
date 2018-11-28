@@ -28,6 +28,11 @@ jobs:
           command: yarn build
 
       - run:
+          name: Push stats
+          command: |
+            exit 1
+
+      - run:
           name: Publish npm package
           command: |
             if [ ! -z ${npm_TOKEN+x} ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
