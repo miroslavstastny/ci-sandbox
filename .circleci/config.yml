@@ -1,4 +1,8 @@
 version: 2
+general:
+  tags:
+    ignore:
+      /ci-skip.*/s
 jobs:
   build:
     working_directory: ~/project
