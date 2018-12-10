@@ -1,8 +1,8 @@
 version: 2
 general:
-  tags:
+  branches:
     ignore:
-      /ci-skip.*/s
+      /ci-skip.*/
 workflows:
   version: 2
   build:
