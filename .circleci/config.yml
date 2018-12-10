@@ -3,6 +3,11 @@ general:
   tags:
     ignore:
       /ci-skip.*/s
+workflows:
+  version: 2
+  build:
+    jobs:
+      -build
 jobs:
   build:
     working_directory: ~/project
