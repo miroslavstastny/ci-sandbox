@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 general:
   branches:
     ignore:
@@ -8,6 +8,13 @@ workflows:
   build:
     jobs:
       - build
+commands:
+  build_from_sources:
+    description: "Build library from sources"
+    steps:
+      - run:
+          name: Build
+          command: yarn build
 jobs:
   build:
     working_directory: ~/project
@@ -31,11 +38,7 @@ jobs:
             - ~/.cache/yarn
             - .yarn-cache
             - node_modules
-
-      - run:
-          name: Build
-          command: yarn build
-
+      - build_from_sources
       - run:
           name: Push stats
           command: |
