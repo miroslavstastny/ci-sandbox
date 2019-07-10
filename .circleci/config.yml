@@ -1,4 +1,20 @@
-version: 2
+version: 2.1
+general:
+  branches:
+    ignore:
+      /ci-skip.*/
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+commands:
+  build_from_sources:
+    description: "Build library from sources"
+    steps:
+      - run:
+          name: Build
+          command: yarn build
 jobs:
   build:
     working_directory: ~/project
@@ -22,10 +38,28 @@ jobs:
             - ~/.cache/yarn
             - .yarn-cache
             - node_modules
-
+      - build_from_sources
       - run:
-          name: Build
-          command: yarn build
+          name: Push stats
+          command: |
+            statsFile=stats/generated
+
+            if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+              echo "Not a pull request, skipping step"
+              exit 0
+            fi
+            cp stats/current stats/generated
+            if [ -z "$(git status --porcelain stats/generated)" ]; then
+              echo "$statsFile has not changed, exiting"
+              exit 0
+            fi
+
+            echo "Going to push updated $statsFile"
+            git config user.email "miroslav.stastny+dusty@gmail.com"
+            git config user.name "DustyTheBot"
+            git add $statsFile
+            git commit -m "update $statsFile"
+            git push --set-upstream origin ${CIRCLE_BRANCH}
 
       - run:
           name: Publish npm package

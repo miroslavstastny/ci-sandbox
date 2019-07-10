@@ -1,6 +1,6 @@
 {
   "name": "ci-sandbox",
-  "version": "0.0.7",
+  "version": "0.0.8-15.newer.89fa09c.0",
   "main": "lib/ci-sandbox.js",
   "types": "lib/ci-sandbox.d.ts",
   "repository": "git@github.com:miroslavstastny/ci-sandbox.git",
