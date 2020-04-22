@@ -1,6 +1,6 @@
 {
   "name": "ci-sandbox",
-  "version": "0.0.7",
+  "version": "0.0.8-15.newer.89fa09c.0",
   "main": "lib/ci-sandbox.js",
   "types": "lib/ci-sandbox.d.ts",
   "repository": "git@github.com:miroslavstastny/ci-sandbox.git",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/node": "^10.9.4",
     "awesome-typescript-loader": "^5.2.1",
+    "danger": "^6.0.5",
     "dts-bundle-webpack": "^1.0.0",
     "react": "^16.5.0",
     "typescript": "^3.0.3",
